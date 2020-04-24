@@ -1,0 +1,806 @@
+﻿@*@section Scripts {
+        <script>
+            $.ajax({
+                url: "./setData",
+                data: JSON.stringify({
+                    test: $('#txtId').val()
+                }),
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    alert(data.status)
+                }
+            });
+        </script>
+    }*@
+
+
+
+
+
+@*disabled*@
+
+<style type="text/css">
+    .tb-topic {
+        border-collapse: collapse;
+        margin-top: 30px;
+    }
+</style>
+
+
+
+
+
+
+@*<input type="text" name="daterange" value="01/01/2018 - 01/15/2018" />
+
+    <script>
+        $(function () {
+            $('input[name="daterange"]').daterangepicker({
+                opens: 'left'
+            }, function (start, end, label) {
+                console.log("A new date selection was made: " + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD'));
+            });
+        });
+    </script>*@
+
+
+@*"bootstrap --> dropdown*@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+
+@*dropdown*@
+@*<div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        </div>
+
+        <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+        <div class="input-group-prepend">
+            <input>
+        </div>
+
+    </div>*@
+@*dropdown*@
+@*<div class="input-group mb-3">
+        <div class="input-group-prepend">
+            <label class="input-group-text" for="inputGroupSelect01">Options</label>
+        </div>
+
+        <select class="custom-select" id="inputGroupSelect01">
+            <option selected>Choose...</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+        </select>
+
+    </div>*@
+
+@*dropdown search multiple*@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+    </div>
+
+
+    <select id="tu" class="form-control selectpicker select2 " multiple>
+        <optgroup label="Condiments" data-max-options="2">
+            <option>Mustard</option>
+            <option>Ketchup</option>
+            <option>Relish</option>
+        </optgroup>
+        <optgroup label="Breads" data-max-options="2">
+            <option>Plain</option>
+            <option>Steamed</option>
+            <option>Toasted</option>
+        </optgroup>
+    </select>
+
+    <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+
+
+</div>
+<script>
+    $('.select2').select2();
+
+    //วิธีเช็คค่าใน console
+    $('#submit').on('click', () => {
+        console.log($('#tu').val());
+    })
+
+</script>
+
+
+@*dropdown search*@
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+    </div>
+
+    <select class="form-control select2">
+        <option>Choose..</option>
+        <option>Car</option>
+        <option>Bike</option>
+        <option>Scooter</option>
+        <option>Cycle</option>
+        <option>Horse</option>
+    </select>
+
+</div>
+<script>
+    $('.select2').select2();
+
+</script>
+
+
+
+@*upload file*@
+@*<div class="input-group mb-3">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="inputGroupFile02">
+            <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+        </div>
+        <div class="input-group-append">
+
+            <button type="submit" class="btn btn-primary pull-right">Upload</button>
+        </div>
+        <div class="input-group-append">
+
+            <button type="reset" class="btn btn-danger pull-right" style="margin-right: 20px">Reset</button>
+        </div>
+    </div>*@
+
+
+
+@*insert data*@
+<form method="post" id="tr">
+
+    <div class="row" style="margin-top: 30px">
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="firstname">Firstname</label>
+                <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Firstname">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Telephone number</label>
+                <input type="text" name="phone" class="form-control" id="phone" placeholder="Telephone number ">
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label for="exampleInputPassword">Lastname</label>
+                <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Lastname">
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" name="submit" id="submit" style="margin:15px">submit</button>
+
+    </div>
+
+</form>
+
+<script>
+
+</script>
+
+
+@*show data*@
+@*<table id="tb">
+        <thead>
+            <tr>
+
+                <th>ID</th>
+                <th>firstname</th>
+                <th>lastname</th>
+                <th>email</th>
+                <th>phone</th>
+                <th>action</th>
+
+            </tr>
+        </thead>
+    </table>*@
+
+
+
+
+
+@*model dialog*@
+@*<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form method="post">
+
+                        <div class="row" style="margin-top: 30px">
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstname">Firstname</label>
+                                    <input type="text" name="firstname" class="form-control" id="firstname" placeholder="Firstname">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="phone">Telephone number</label>
+                                    <input type="text" name="phone" class="form-control" id="phone" placeholder="Telephone number ">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="exampleInputPassword">Lastname</label>
+                                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Lastname">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email">E-mail</label>
+                                    <input type="email" name="email" class="form-control" id="email" placeholder="Email">
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function () {
+            //ต้องสร้างตัวแปร table ขึ้นมาเพื่อให้มัน refresh
+
+
+            $('#tb').DataTable(
+                {
+                    "ajax": {
+                        "url": "./GetData",
+                        "type": "GET",
+                        "datatype": "json",
+                    },
+                    "columns": [
+
+                        { "data": "ID" },
+                        { "data": "firstname" },
+                        { "data": "lastname" },
+                        { "data": "email" },
+                        { "data": "phone" },
+                        {
+                            "data": "ID",
+                            render: function (data, type, row) {
+
+                                return `<button type="button" class="btn btn-primary" id="btndetele" style="margin-right: 20px" data-toggle="modal" data-target="#exampleModal" value="Update" onclick="UpdateData(${row.ID})">update</button><button type="button" class="btn btn-danger" id="btndetele" value="Delete" onclick="DeleteData(${row.ID})">delete</button>`;
+
+                            }
+                        },
+
+                    ]
+
+                });
+        });
+
+
+
+
+
+
+
+        function InsertData() {
+            if ($('#submit').val() == 'submit') {
+                $.ajax({
+                    url: "./InsertData",
+                    data: JSON.stringify({
+                        firstname: $('#firstname').val(),
+                        lastname: $('#lastname').val(),
+                        emal: $('#email').val(),
+                        phone: $('#phone').val(),
+
+                    }),
+                    contentType: "application/json; charset=utf-8",
+                    type: "POST",
+                    dataType: "JSON",
+                    success: function (data) {
+                        alert(data.status)
+                    },
+                    error: function () {
+                        alert('Insert error !!')
+                    }
+                });
+            }
+        }
+
+        //function GetData(getdata) {
+        //    $.ajax({
+        //        url: './Index',
+        //        data: JSON.stringify(getdata),
+        //        contentType: "application/json; charset=utf-8",
+        //        type: "POST",
+        //        dataType: "JSON",
+
+        //        success: function (_data) {
+        //            _data = JSON.parse(_data.d);
+        //            $("#tb").remove();
+        //            for (var i = 0; i < _data.length; i++) {
+        //                $("#tb").append('<table class="tb" id="tb"><thead><tr><td>' + _data[i].firstname + '</td><td>' + _data[i].lastname + '</td><td>' + _data[i].email + '</td><td>' + _data[i].phone + '</td><td><button type="button" class="btn btn-primary" name="submit" id="btnupdate"  value="Update" onclick="UpdateData(' + _data[i].id + ')">update</button> /></td>  <td><button type="button" class="btn btn-danger" id="btndetele" value="Delete" onclick="DeleteData(' + _data[i].id + ')">delete</button> /></td >  </tr > ');
+        //            }
+
+        //        },
+        //        error: function () {
+        //            alert("Get Error");
+        //        }
+
+        //    });
+
+        //}
+
+        function UpdateData(ID) {
+            $.ajax({
+
+                url: './UpdateData',
+                data: JSON.stringify("{ID : '" + ID + "'}"),
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                dataType: "JSON",
+
+                success: function (dt) {
+                    dt = JSON.parse(_dt.d);
+
+                    $('#firstname').val(dt[0].firstname);
+                    $('#lastname').val(dt[0].lastname);
+                    $('#email').val(dt[0].email);
+                    $('#phone').val(dt[0].phone);
+                    $('#submit').val("Update");
+
+                },
+                error: function () {
+                    alert('update error !!');
+                }
+            });
+        }
+
+        function DeleteData(ID) {
+            $.ajax({
+                url: './DeleteData',
+                data: JSON.stringify({
+                    ID: ID
+                }),
+                contentType: "application/json; charset=utf-8",
+                type: "POST",
+                dataType: "JSON",
+                success: function (data) {
+                    alert(data.status)
+                },
+                error: function () {
+                    alert('delete error !!');
+                }
+            });
+        }
+
+
+
+        function bs_input_file() {
+            $(".input-file").before(
+                function () {
+                    if (!$(this).prev().hasClass('input-ghost')) {
+                        var element = $("<input type='file' class='input-ghost' style='visibility:hidden; height:0'>");
+                        element.attr("name", $(this).attr("name"));
+                        element.change(function () {
+                            element.next(element).find('input').val((element.val()).split('\\').pop());
+                        });
+                        $(this).find("button.btn-choose").click(function () {
+                            element.click();
+                        });
+                        $(this).find("button.btn-reset").click(function () {
+                            element.val(null);
+                            $(this).parents(".input-file").find('input').val('');
+                        });
+                        $(this).find('input').css("cursor", "pointer");
+                        $(this).find('input').mousedown(function () {
+                            $(this).parents('.input-file').prev().click();
+                            return false;
+                        });
+                        return element;
+                    }
+                }
+            );
+        }
+        $(function () {
+            bs_input_file();
+        });
+
+
+    </script>
+
+
+}
+
+@*"bootstrap --> dropdown*@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+<!------ datepicker ---------->
+<script src="~/Scripts/datepicker.js"></script>
+<link href="~/Scripts/datepicker.min.css" rel="stylesheet" />
+
+<style>
+    .button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        border-radius: .25rem;
+    }
+
+    .label {
+        padding: .375rem .75rem;
+        margin-bottom: 0;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        text-align: left;
+        background-color: #e9ecef;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        width: 100px;
+    }
+</style>
+
+<div style="text-align:right">
+    <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
+        <div class="btn-group" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sirinun Kasetrthat
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+                <a class="dropdown-item" href="#">Hardware Asset</a>
+                <a class="dropdown-item" href="#">Dashboard</a>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn btn-danger" style="margin-left:20px">Loguot</button>
+</div>
+
+
+<div class="col-md-6" style="margin-top: 2%">
+    <div class="card">
+        <div class="card">
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+                <div style="margin-top: 2%">
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-6" style="margin-top: 2%">
+    <div class="card">
+        <div class="card">
+            <div class="card-body">
+                <div class="card">
+                    <div class="card-body">
+                        This is some text within a card body.
+                    </div>
+                </div>
+                <div style="margin-top: 2%">
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="button"></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="col-md-12" style="margin-top: 2%">
+    <div class="card">
+        <div class="card-header">
+            Hardware Asset
+        </div>
+        <div class="card-body">
+
+            <form>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Equipment</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Equipment Type</label>
+                    </div>
+
+                    <select id="tu" class="form-control selectpicker select2">
+                        <option selected>Choose</option>
+                        <optgroup label="Condiments" data-max-options="2">
+                            <option>Mustard</option>
+                            <option>Ketchup</option>
+                            <option>Relish</option>
+                        </optgroup>
+                        <optgroup label="Breads" data-max-options="2">
+                            <option>Plain</option>
+                            <option>Steamed</option>
+                            <option>Toasted</option>
+                        </optgroup>
+                    </select>
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Serial Number</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Model</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Status</label>
+                    </div>
+
+                    <select id="tu" class="form-control selectpicker ">
+                        <option selected>Choose</option>
+                        <option value="1">Select All</option>
+                        <option value="2">Service</option>
+                        <option value="3">Inservice</option>
+                    </select>
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Owner</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Telephone Number</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Section</label>
+                    </div>
+
+                    <select id="tu" class="form-control selectpicker select2">
+                        <option selected>Choose</option>
+                        <option>Mustard</option>
+                        <option>Ketchup</option>
+                        <option>Relish</option>
+                        <option>Plain</option>
+                        <option>Steamed</option>
+                        <option>Toasted</option>
+
+                    </select>
+
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Derpartment</label>
+                    </div>
+
+                    <select id="tu" class="form-control selectpicker select2 ">
+                        <option selected>Choose</option>
+                        <option>Mustard</option>
+                        <option>Ketchup</option>
+                        <option>Relish</option>
+                        <option>Plain</option>
+                        <option>Steamed</option>
+                        <option>Toasted</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Responsible</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Former Owner</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Former Location</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Location</label>
+                    </div>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Machine Date</label>
+                    </div>
+
+                    <select id="tu" class="form-control selectpicker">
+                        <option selected>Choose</option>
+                        <option value="1">Month</option>
+                        <option value="2">Year</option>
+                    </select>
+                    <input type="text" class="form-control" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                </div>
+
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Purchase Date</label>
+                    </div>
+                    <input id="datepicker" width="150" />
+                    <input id="datepicker1" width="150" />
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Service Date</label>
+                    </div>
+                    <input id="datepicker2" width="150" />
+                    <input id="datepicker3" width="150" />
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <label class="label" for="inputGroupSelect01">Warranty Date</label>
+                    </div>
+                    <input id="datepicker4" width="150" />
+                    <input id="datepicker5" width="150" />
+                </div>
+
+            </form>
+
+
+
+
+
+
+
+
+            @*dropdown search *@
+            <script>
+                $('.select2').select2();
+                //วิธีเช็คค่าใน console
+                $('#submit').on('click', () => {
+                    console.log($('#tu').val());
+                })
+
+            </script>
+
+
+            @*datepicker*@
+            <script>
+                $('#datepicker').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+            <script>
+                $('#datepicker1').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+            <script>
+                $('#datepicker2').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+            <script>
+                $('#datepicker3').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+            <script>
+                $('#datepicker4').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+            <script>
+                $('#datepicker5').datepicker({
+                    uiLibrary: 'bootstrap'
+                });
+            </script>
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
